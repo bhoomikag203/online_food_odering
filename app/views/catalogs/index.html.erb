@@ -1,0 +1,31 @@
+<div class="page_content">
+	<div class="header"><h2>Menu</h2></div>
+	<div class="container">
+		<div class="table-responsive">     
+	  	 <table class="table table-hover">
+	    	<thead>
+	      		<tr>
+	      			<th>ID</th>
+		        	<th>Name</th>
+		        	<th>Price</th> 
+	      		</tr>
+	    	</thead>
+	   		<% @catalogs.each do |c| %>
+		    <tbody>
+		    	<tr>
+		    		<td><%= c.id %></td>
+		    		<td><%= link_to c.name.capitalize, {:action =>'show' ,:id => c.id} %></td>
+			    	<td>Rs.<%= c.price %>/-</td>
+			    </tr> 
+			 </tbody>
+		    <% end %>
+		 </table>
+		</div>
+		</div>
+		<div class="container">
+		<%= link_to '<button type="button" class="btn btn-primary">Add Items</button>'.html_safe, new_catalog_path %>
+	</br>
+	 <%= will_paginate @catalogs %>
+	</div>
+</div>
+</div>

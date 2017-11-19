@@ -1,0 +1,18 @@
+<!--<div class="page_content">
+	<div class="container">
+		<h2 class ="header">List Of Customers</h2>
+	</div>
+	<div class="list-group">
+		<ol>
+		  <% @customers.each do |c| %>
+		  <li><%= link_to c.name.capitalize, {:action =>'show' ,:id => c.id} %>
+		    </br><b><%= link_to 'Edit', {:action => 'edit' ,:id => c.id} %></b>
+			<b><%= link_to 'Delete', {:action => 'destroy' ,:id => c.id} ,
+				:confirm => "Are you sure, you want to delete?" %></b>	
+		</li></br>
+		  <% end %>
+		</ol>
+		<%= will_paginate %>
+	</div>
+</div>
+-->

@@ -1,0 +1,13 @@
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+         <li style="font-size: 20px" class="<%= 'active' if current_page?('/') %>"><%= link_to "FOODIE", "/" %></li>
+        <li class="<%= 'active' if current_page?(catalogs_path) %>"><%= link_to "Menu", catalogs_path %></li>
+         <li class="<%= 'active' if current_page?(customers_path) %>"><%= link_to "Customers", customers_path %></li>
+         <li><%= link_to "Orders", '#'%></li>
+         <li><%= link_to "Shipments", "#" %></li>
+         <li><%= link_to "Payments", "#" %></li>
+      </ul>
+    </nav>
+</header>

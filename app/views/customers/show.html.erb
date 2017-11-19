@@ -1,0 +1,13 @@
+<div class="container">
+<div class="jumbotron">
+<h1><%= @customer.name.capitalize %></h1>
+<p><div class="well">
+	<strong>Email: </strong> <%= @customer.email %><br/>
+	<strong>Address: </strong> <%= @customer.address.capitalize %><br/>
+	<strong>Phone_no: </strong> <%= @customer.phone_no %><br/>
+</div>
+</p>
+</div>
+<%= link_to '<button type="button" class="btn btn-primary">Update</button>'.html_safe, edit_customer_path %>
+<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, customer_path, method: :delete %>
+</div>
