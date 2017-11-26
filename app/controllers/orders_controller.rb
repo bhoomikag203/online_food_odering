@@ -38,16 +38,23 @@ class OrdersController < ApplicationController
 		    Rails.logger.info("Executing native querry")
 		    #@order = ActiveRecord::Base.connection.execute("insert into orders(customer_id) values('#{@order.customer_id})'")
 		    #redirect_to :action => 'index'
+		    @order.save
 		    payment = Payment.new
 		    payment.payment_type = params[:payment_type]
+		    payment.status = "Pending"
+		    payment.order = @order
 		    payment = payment.create(skip_execute_raw_query: true)
 
-		    shipment = Shipment.new(params[:staff_name], params[:phone_no])
-		    shipment = shipment.create
+		    shipment = Shipment.new
+		    shipment.staff_name = params[:staff_name]
+		    shipment.phone_no = params[:phone_no]
+		    shipment.status = "Created"
+		    shipment.order = @order
+		    shipment = shipment.create(skip_execute_raw_query: true)
 
-		    @order.payment_id = payment.id
-		    @order.shipment_id = shipment.id
-		    @order.save
+		    # @order.payment_id = payment.id
+		    # @order.shipment_id = shipment.id
+		    #@order.save
 
 		    order_detail = OrderDetail.new(@order.id,params[:catalog_id_1], params[:quantity_1])
 		    order_detail.create
