@@ -1,3 +1,5 @@
 class Customer < ApplicationRecord
-	validates :phone_no, format: { with: /\d{5}-\d{5}/, message: "bad format" }
+	has_many :orders
+	validates :name, presence: true
+	validates :email, presence: true
 end

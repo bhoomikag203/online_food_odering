@@ -3,7 +3,7 @@ class CatalogsController < ApplicationController
     if Figaro.env.execute_raw_querry == "true"
       Rails.logger.info("Executing native querry")
       @catalogs = Catalog.find_by_sql('select * from catalogs')
-      @catalogs = Catalog.paginate(page: params[:page], per_page: 5)
+      @catalogs = Catalog.all.paginate(page: params[:page], per_page: 5)
     else
       Rails.logger.info("Executing ruby statments")
       @catalogs = Catalog.paginate(page: params[:page], per_page: 5)
@@ -30,7 +30,7 @@ class CatalogsController < ApplicationController
          # TODO This is not returning sql result
       if Figaro.env.execute_raw_querry == "true"
       Rails.logger.info("Executing native querry")
-      @catalog = ActiveRecord::Base.connection.execute("insert into catalogs(name, price) values('#{@catalog.name}', '#{@catalog.price}')")
+      @catalog = ActiveRecord::Base.connection.execute("insert into catalogs(name, price) values('#{@catalog.name}','#{@catalog.price}')")
       redirect_to :action => 'index'
      else
       Rails.logger.info("Executing ruby statments")

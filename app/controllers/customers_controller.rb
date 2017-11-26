@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
 			Rails.logger.info("Executing ruby statments")			
 			@customer = Customer.find(params[:id])
 		end
+		render :not_found if @customer.nil?
 	end
 
 	def new

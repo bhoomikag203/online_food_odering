@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="well"><center><h2>Order Now</h2></center></div>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@order) do |f| %>
+
+    <div class="form-group">
+      <%= f.label :"Customer ID" %>
+      <%= f.text_field :customer_id, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= select_tag "payment_type" , options_for_select(['cash','paytm']) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"Staff Name" %>
+      <input type="text" name="staff_name" class="form-control">
+     <%# <%= text_field :staff_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"Phone Number" %>
+      <input type="text" name="phone_no" class="form-control">
+     <%# <%= text_field :phone_no, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"First Item ID" %>
+      <input type="text" name="catalog_id_1" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"Quantity" %>
+      <input type="nummber" name="quantity_1" class="form-control">
+    </div>
+ 
+    <div class="form-group">
+      <%= f.label :"Second Item ID " %>
+      <input type="text" name="catalog_id_2" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"Quantity" %>
+      <input type="nummber" name="quantity_2" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "order now", class: "btn btn-primary"  %>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

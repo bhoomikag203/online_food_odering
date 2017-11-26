@@ -1,0 +1,8 @@
+.page-content
+{
+	background-image: url("food2.jpg");
+	background-size: cover;
+	height: 700px;
+	
+
+}

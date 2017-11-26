@@ -7,5 +7,5 @@
 </p>
 </div>
 <%= link_to '<button type="button" class="btn btn-primary">Upadte</button>'.html_safe, edit_catalog_path %>
-<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, catalog_path , method: :delete %>
+<%= link_to '<button type="button" class="btn btn-danger" >Delete</button>'.html_safe, catalog_path , method: :delete , :onclick => "alert('Item successfully deleted..!')" %>
 </div>

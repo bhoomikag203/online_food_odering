@@ -1,0 +1,21 @@
+<div class="container">
+<div class="jumbotron">
+<h1><center>Order Details</center></h1>
+<p><div class="well">
+	<strong>Order ID: </strong> <%= @order.id %><br/>
+	<strong>Customer Name:</strong><% %></br>
+	<strong>Item 1: </strong> <%= @order.order_details.first.catalog.name %><strong>Quantity: </strong> <%= @order.order_details.first.quantity %><br/>
+	<strong>Item 2: </strong> <%= @order.order_details.last.catalog.name %><strong>Quantity: </strong> <%= @order.order_details.last.quantity %><br/>
+	<h2> Payment Details</h2>
+	<strong>Payment Type: </strong> <%= @order.payment.first %><br/>
+	<strong>Payment Status: </strong> <%= @status %><br/>
+	<h2> Shipment Details</h2>
+	<strong>Delivery Person Name: </strong> <%= @staff_name %><br/>
+	<strong>Phone No. : </strong> <%= @phone_no %><br/>
+	<strong>Shipment Status: </strong> <%= @status %><br/>
+</div>
+</p>
+</div>
+<%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, "#" %>
+<%#<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, customer_path, method: :delete %>
+</div>
