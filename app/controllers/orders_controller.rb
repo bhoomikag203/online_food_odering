@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 	      @orders = Order.all.paginate(page: params[:page], per_page: 5)
 	    else
 	      Rails.logger.info("Executing ruby statments")
-	      @orderss = Order.all.paginate(page: params[:page], per_page: 5)
+	      @orders = Order.all.paginate(page: params[:page], per_page: 5)
    		end
 	end
 
@@ -63,8 +63,25 @@ class OrdersController < ApplicationController
 		    order_detail = OrderDetail.new(@order.id,params[:catalog_id_2], params[:quantity_2])
 		    order_detail.create
 
-		    redirect_to :action => 'show'
 
+
+		    redirect_to :action => 'index'
+
+	end
+
+
+	def destroy
+		if Figaro.env.execute_raw_querry == "true"
+			Rails.logger.info("Executing native querry")
+			@order =  ActiveRecord::Base.connection.execute("delete from orders where id = #{ params[:id] }")
+			flash[:success] = "Order deleted successfully"
+			redirect_to :action => 'index'
+		else
+			Rails.logger.info("Executing ruby statments")
+			Order.find(params[:id]).destroy
+			flash[:success] = "Order deleted"
+			redirect_to :action => 'index'
+		end
 	end
 
 	def order_params

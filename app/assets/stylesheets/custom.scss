@@ -100,3 +100,45 @@ button
 {
 	background: white;
 }
+
+.table
+{
+	width: 1000px;
+}
+
+.table td
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+.table th
+{
+	font-weight: bold;
+	font-size: 200%;
+}
+
+body{
+	
+	background-image:url("background3.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: visible;
+	positon: absolute;
+}
+
+.b1
+{
+	margin-bottom: 30px;
+}
+
+.btn btn-primary
+{
+	margin-rigth: 50px;
+}
+
+.str
+{
+	font-size: 100%;
+}

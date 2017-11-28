@@ -73,11 +73,12 @@ class CustomersController < ApplicationController
 			if @customer.update_attributes(customer_params)
 				redirect_to :action => 'show' , :id => @customer
 				flash[:success] = " Updated "
-		else
-			render :action => 'edit'
+		    else
+			    render :action => 'edit'
+			end
 		end
 	end
-end
+
 	def destroy
 		if Figaro.env.execute_raw_querry == "true"
 			Rails.logger.info("Executing native querry")

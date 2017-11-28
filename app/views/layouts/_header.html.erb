@@ -5,9 +5,9 @@
          <li style="font-size: 20px" class="<%= 'active' if current_page?('/') %>"><%= link_to "FOODIE", "/" %></li>
         <li class="<%= 'active' if current_page?(catalogs_path) %>"><%= link_to "Menu", catalogs_path %></li>
          <li class="<%= 'active' if current_page?(customers_path) %>"><%= link_to "Customers", customers_path %></li>
-        <li class="<%= 'active' if current_page?(new_order_path) %>"><%= link_to "Orders", new_order_path %></li>
-         <li><%= link_to "Shipments", "#" %></li>
-         <li><%= link_to "Payments", "#" %></li>
+        <li class="<%= 'active' if current_page?(orders_path) %>"><%= link_to "Orders", orders_path %></li>
+         <li class="<%= 'active' if current_page?(shipments_path) %>"><%= link_to "Shipments", shipments_path %></li>
+         <li class="<%= 'active' if current_page?(payments_path) %>"><%= link_to "Payments", payments_path %></li>
       </ul>
     </nav>
 </header>

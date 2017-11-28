@@ -16,4 +16,5 @@ class OrderDetail < ApplicationRecord
 			self.save
 		end	
 	end
+
 end

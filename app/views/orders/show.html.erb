@@ -1,21 +1,24 @@
 <div class="container">
 <div class="jumbotron">
-<h1><center>Order Details</center></h1>
 <p><div class="well">
+<h1><center>Order Details</center></h1>
+</div>
 	<strong>Order ID: </strong> <%= @order.id %><br/>
-	<strong>Customer Name:</strong><%= @order.customer.name %></br>
-	<strong>Item 1: </strong> <%= @order.order_details.first.catalog.name %><strong>Quantity: </strong> <%= @order.order_details.first.quantity %><br/>
-	<strong>Item 2: </strong> <%= @order.order_details.last.catalog.name %><strong>Quantity: </strong> <%= @order.order_details.last.quantity %><br/>
+	<strong>Customer Name:</strong><%= @order.customer.name.capitalize %></br>
+	<strong>Item 1: </strong> <%= @order.order_details.first.catalog.name.capitalize %>
+	<strong style="margin-left: 40px">Quantity: </strong> <%= @order.order_details.first.quantity %><br/>
+	<strong>Item 2: </strong> <%= @order.order_details.last.catalog.name.capitalize %>
+	<strong style="margin-left: 40px">Quantity: </strong> <%= @order.order_details.last.quantity %><br/>
 	<h2> Payment Details</h2>
 	<strong>Payment Type: </strong> <%= @order.payment.payment_type %><br/>
-	<strong>Payment Status: </strong> <%= @order.payment.status %><br/>
+	<strong>Payment Status: </strong> <%= @order.payment.status.capitalize %><br/>
 	<h2> Shipment Details</h2>
-	<strong>Delivery Person Name: </strong> <%= @order.shipment.staff_name %><br/>
+	<strong>Delivery Person Name: </strong> <%= @order.shipment.staff_name.capitalize %><br/>
 	<strong>Phone No. : </strong> <%= @order.shipment.phone_no %><br/>
-	<strong>Shipment Status: </strong> <%= @order.shipment.status %><br/>
-</div>
+	<strong>Shipment Status: </strong> <%= @order.shipment.status.capitalize %><br/>
 </p>
 </div>
-<%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, "#" %>
-<%#<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, customer_path, method: :delete %>
+<div class="b1">
+<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, order_path, method: :delete %>
+</div>
 </div>

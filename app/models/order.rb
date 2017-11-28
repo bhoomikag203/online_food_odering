@@ -3,4 +3,6 @@ class Order < ActiveRecord::Base
 	has_one :payment
 	has_one :shipment
 	has_many :order_details
+
+	
 end

@@ -1,0 +1,37 @@
+<div class="page_content">
+	<div class="header"><h2 style="font-family: Georgia">SHIPMENTS</h2></div>
+	<div class="container">
+		<div class="table-responsive">     
+	  	 <table class="table table-hover">
+	    	<thead>
+	      		<tr class="str">
+	      			
+	      			<th>Order ID</th>
+		        	<th>Customer Name</th>
+		        	<th>Address</th>
+		        	<th>Deliverer Name</th>
+		        	<th>Phone No</th>
+		        	<th>Status</th>
+		        </tr>
+	    	</thead>
+	   		<% @shipments.each do |s| %>
+		    <tbody>
+		    	<tr>
+		    		
+		    		<td><%= s.order_id %></td>
+		    		<td><%= link_to s.order.customer.name.capitalize, {:controller => 'orders', :action =>'show' ,:id => s.order_id} %></td>
+		    		<td><%= s.order.customer.address.capitalize %></td>
+		    		<td><%= s.staff_name.capitalize %></td>
+		    		<td><%= s.phone_no %></td>
+		    		<td><%= s.status %></td>
+ 			    </tr> 
+			 </tbody>
+		    <% end %>
+		 </table>
+		</div>
+	</div>
+	<div class="container">
+	<%= will_paginate %> 
+	</div>
+</div>
+</div>
