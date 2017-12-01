@@ -63,10 +63,30 @@ class OrdersController < ApplicationController
 		    order_detail = OrderDetail.new(@order.id,params[:catalog_id_2], params[:quantity_2])
 		    order_detail.create
 
+		 	@order = ActiveRecord::Base.connection.execute("update orders inner join(select order_id, sum(quantity*price) total_price from order_details inner join catalogs on order_details.catalog_id=catalogs.id group by order_id) d on orders.id = d.order_id set orders.total_cost = d.total_price; ")
+
 
 
 		    redirect_to :action => 'index'
 
+	end
+
+	def update
+		@order = Order.new(order_params)
+
+		 # TODO This is not returning sql result
+         if Figaro.env.execute_raw_querry == "true"
+			Rails.logger.info("Executing native querry")
+		 	redirect_to :action => 'show'
+		else
+			Rails.logger.info("Executing ruby statments")		 	
+			if @customer.update_attributes(customer_params)
+				redirect_to :action => 'show' , :id => @customer
+				flash[:success] = " Updated "
+		    else
+			    render :action => 'edit'
+			end
+		end
 	end
 
 

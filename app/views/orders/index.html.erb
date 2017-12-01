@@ -17,7 +17,7 @@
 		    	<tr>
 		    		<td><%= o.id %></td>
 		    		<td><%= link_to o.customer.name.capitalize, {:action =>'show' ,:id => o.id} %></td>
-		    		<td><%= o.total_cost %></td>
+		    		<td>Rs <%= o.total_cost %>.00 /-</td>
 		    		<td><%= o.payment.status %></td>
 			    	<td><%= o.shipment.status %></td>
 			    </tr> 

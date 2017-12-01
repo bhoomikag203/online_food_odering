@@ -10,6 +10,7 @@
 	<strong>Item 2: </strong> <%= @order.order_details.last.catalog.name.capitalize %>
 	<strong style="margin-left: 40px">Quantity: </strong> <%= @order.order_details.last.quantity %><br/>
 	<h2> Payment Details</h2>
+	<strong>Total cost: </strong>Rs <%= @order.total_cost %>.00 /-<br/>
 	<strong>Payment Type: </strong> <%= @order.payment.payment_type %><br/>
 	<strong>Payment Status: </strong> <%= @order.payment.status.capitalize %><br/>
 	<h2> Shipment Details</h2>
